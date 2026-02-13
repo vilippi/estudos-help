@@ -40,34 +40,23 @@ export default function Home() {
     transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const, delay },
   });
 
-  function useThemeToggle() {
-    const [theme, setTheme] = useState<"light" | "dark">("light");
-    const [mounted, setMounted] = useState(false);
+  // dark mode
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const saved = localStorage.getItem("darkMode");
+    if (saved !== null) return saved === "true";
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  });
 
-    useEffect(() => {
-      const saved = localStorage.getItem("theme") as "light" | "dark" | null;
-      const systemPrefersDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
-
-      const initial: "light" | "dark" = saved ?? (systemPrefersDark ? "dark" : "light");
-
-      document.documentElement.classList.toggle("dark", initial === "dark");
-      setTheme(initial);
-      setMounted(true);
-    }, []);
-
-    function toggleTheme() {
-      setTheme((prev) => {
-        const next = prev === "dark" ? "light" : "dark";
-        localStorage.setItem("theme", next);
-        document.documentElement.classList.toggle("dark", next === "dark");
-        return next;
-      });
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("darkMode", "true");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("darkMode", "false");
     }
+  }, [isDarkMode]);
 
-    return { theme, toggleTheme, mounted };
-  }
-
-  const { theme, toggleTheme, mounted } = useThemeToggle();
 
   return (
     <div className="min-h-screen bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-50">
@@ -107,6 +96,13 @@ export default function Home() {
             >
               Começar <ArrowRight className="h-4 w-4" />
             </a>
+
+            <button
+              onClick={() => setIsDarkMode(!isDarkMode)}
+              className="p-2 rounded hover:bg-black/10 dark:hover:bg-white/10 text-gray-700 dark:text-gray-200"
+            >
+              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
           </nav>
 
           <button
@@ -118,18 +114,6 @@ export default function Home() {
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
 
-          <button
-            type="button"
-            onClick={toggleTheme}
-            aria-label="Alternar tema"
-            className="inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white p-2 hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-900"
-          >
-            {mounted ? (
-              theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />
-            ) : (
-              <div className="h-5 w-5" />
-            )}
-          </button>
         </div>
 
         {/* Mobile menu */}
