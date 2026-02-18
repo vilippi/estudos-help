@@ -59,19 +59,19 @@ export default function Home() {
 
 
   return (
-    <div className="min-h-screen bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-50">
+    <div className="min-h-screen bg-white text-neutral-900">
       {/* Background blobs */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-sky-300/80 blur-3xl dark:bg-sky-500/20" />
-        <div className="absolute top-32 -right-24 h-80 w-80 rounded-full bg-violet-600/40 blur-3xl dark:bg-violet-500/20" />
-        <div className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-pink-800/30 blur-3xl dark:bg-emerald-500/15" />
+        <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-sky-300/80 blur-3xl" />
+        <div className="absolute top-32 -right-24 h-80 w-80 rounded-full bg-violet-600/40 blur-3xl" />
+        <div className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-pink-500/80 blur-3xl" />
       </div>
 
       {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-neutral-200/70 bg-white/70 backdrop-blur dark:border-neutral-800/70 dark:bg-neutral-950/60">
+      <header className="sticky top-0 z-50 border-b border-neutral-200/70 bg-white/70 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <a href="#" className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-900">
+            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[radial-gradient(circle_at_30%_20%,#60a5fa_0%,transparent_55%),radial-gradient(circle_at_70%_80%,#a78bfa_0%,transparent_60%),linear-gradient(135deg,#2563eb_0%,#7c3aed_55%,#0b1220_100%)] text-white shadow-[0_10px_30px_-12px_rgba(96,165,250,0.65)] ring-1 ring-white/10">
               <GraduationCap className="h-5 w-5" />
             </div>
             <div className="leading-tight">
@@ -92,7 +92,7 @@ export default function Home() {
             ))}
             <a
               href="#comecar"
-              className="inline-flex items-center gap-2 rounded-xl bg-neutral-900 px-4 py-2 text-sm font-semibold text-white hover:opacity-90 dark:bg-white dark:text-neutral-900"
+              className="inline-flex items-center gap-2 rounded-xl bg-neutral-900 px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
             >
               Começar <ArrowRight className="h-4 w-4" />
             </a>
@@ -107,7 +107,7 @@ export default function Home() {
 
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white p-2 dark:border-neutral-800 dark:bg-neutral-950 md:hidden"
+            className="inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white p-2 md:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-label="Abrir menu"
           >
@@ -118,14 +118,14 @@ export default function Home() {
 
         {/* Mobile menu */}
         {open && (
-          <div className="border-t border-neutral-200/70 bg-white/90 backdrop-blur dark:border-neutral-800/70 dark:bg-neutral-950/80 md:hidden">
+          <div className="border-t border-neutral-200/70 bg-white/90 backdrop-blur md:hidden">
             <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-3">
               {nav.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-xl px-3 py-2 text-sm opacity-80 hover:bg-neutral-100 hover:opacity-100 dark:hover:bg-neutral-900"
+                  className="rounded-xl px-3 py-2 text-sm opacity-80 hover:bg-neutral-100 hover:opacity-100"
                 >
                   {item.label}
                 </a>
@@ -133,7 +133,7 @@ export default function Home() {
               <a
                 href="#comecar"
                 onClick={() => setOpen(false)}
-                className="mt-1 inline-flex items-center justify-center gap-2 rounded-xl bg-neutral-900 px-4 py-2 text-sm font-semibold text-white hover:opacity-90 dark:bg-white dark:text-neutral-900"
+                className="mt-1 inline-flex items-center justify-center gap-2 rounded-xl bg-neutral-900 px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
               >
                 Começar <ArrowRight className="h-4 w-4" />
               </a>
@@ -156,7 +156,7 @@ export default function Home() {
                     animate: { opacity: 1, y: 0 },
                     transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
                   })}
-                className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white/70 px-3 py-1 text-xs font-medium backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/60"
+                className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white/70 px-3 py-1 text-xs font-medium backdrop-blur"
               >
                 <Sparkles className="h-4 w-4" />
                 <span>Estudos Help • foco em faculdade</span>
@@ -205,14 +205,14 @@ export default function Home() {
               >
                 <a
                   href="#comecar"
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl bg-neutral-900 px-5 py-3 text-sm font-semibold text-white hover:opacity-90 dark:bg-white dark:text-neutral-900"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl bg-neutral-900 px-5 py-3 text-sm font-semibold text-white hover:opacity-90"
                 >
                   Começar agora <ArrowRight className="h-4 w-4" />
                 </a>
 
                 <a
                   href="#recursos"
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-neutral-200 bg-white/70 px-5 py-3 text-sm font-semibold hover:bg-white dark:border-neutral-800 dark:bg-neutral-950/60 dark:hover:bg-neutral-950"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-neutral-200 bg-white/70 px-5 py-3 text-sm font-semibold hover:bg-white"
                 >
                   Ver recursos <LayoutGrid className="h-4 w-4" />
                 </a>
@@ -237,10 +237,10 @@ export default function Home() {
                 })}
               className="relative pb-16"
             >
-              <div className="rounded-3xl border border-neutral-200 bg-white/70 p-5 shadow-sm backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/60">
+              <div className="rounded-3xl border border-neutral-200 bg-white/70 p-5 shadow-sm backdrop-blur">
                 <div className="flex items-center justify-between">
                   <p className="text-sm font-semibold">Painel do estudante</p>
-                  <span className="rounded-full border border-neutral-200 px-3 py-1 text-xs opacity-70 dark:border-neutral-800">
+                  <span className="rounded-full border border-neutral-200 px-3 py-1 text-xs opacity-70">
                     Semana 3/4
                   </span>
                 </div>
@@ -252,7 +252,7 @@ export default function Home() {
                   <MockCard title="Simulados" value="4" hint="Último: 78%" />
                 </div>
 
-                <div className="mt-4 rounded-2xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-950">
+                <div className="mt-4 rounded-2xl border border-neutral-200 bg-white p-4">
                   <p className="text-sm font-semibold">Plano de hoje</p>
                   <ul className="mt-3 space-y-2 text-sm">
                     <MockTask done>Revisar: Estruturas de Dados</MockTask>
@@ -267,7 +267,7 @@ export default function Home() {
                 <motion.div
                   animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 3.2, repeat: Infinity, ease: [0.16, 1, 0.3, 1] as const }}
-                  className="absolute bottom-4 left-4 rounded-2xl border border-neutral-200 bg-white/80 px-4 py-3 text-sm shadow-sm backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/70"
+                  className="absolute bottom-4 left-4 rounded-2xl border border-neutral-200 bg-white/80 px-4 py-3 text-sm shadow-sm backdrop-blur"
                 >
                   <p className="font-semibold">💡 Dica rápida</p>
                   <p className="text-xs opacity-75">
@@ -281,7 +281,7 @@ export default function Home() {
 
         {/* Features */}
         <section id="recursos" className="mx-auto max-w-6xl px-4 py-14 md:py-20">
-          <motion.div {...fadeUp(0)} className="max-w-2xl">
+          <motion.div {...fadeUp(0)} className="max-w-3xl">
             <p className="text-sm font-semibold opacity-80">Recursos</p>
             <h2 className="mt-2 text-3xl font-bold md:text-4xl">
               Tudo que você precisa para mandar bem
@@ -361,7 +361,7 @@ export default function Home() {
         <section id="comecar" className="mx-auto max-w-6xl px-4 pb-20">
           <motion.div
             {...fadeUp(0)}
-            className="rounded-3xl border border-neutral-200 bg-white/70 p-8 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/60 md:p-10"
+            className="rounded-3xl border border-neutral-200 bg-white/70 p-8 backdrop-blur"
           >
             <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
               <div className="max-w-2xl">
@@ -376,14 +376,14 @@ export default function Home() {
 
               <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
                 <a
-                  href="#"
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl bg-neutral-900 px-5 py-3 text-sm font-semibold text-white hover:opacity-90 dark:bg-white dark:text-neutral-900"
+                  href="/novo-usuario"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl bg-neutral-900 px-5 py-3 text-sm font-semibold text-white hover:opacity-90"
                 >
                   Criar conta <ArrowRight className="h-4 w-4" />
                 </a>
                 <a
                   href="#recursos"
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-neutral-200 bg-white/70 px-5 py-3 text-sm font-semibold hover:bg-white dark:border-neutral-800 dark:bg-neutral-950/60 dark:hover:bg-neutral-950"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-neutral-200 bg-white/70 px-5 py-3 text-sm font-semibold hover:bg-white"
                 >
                   Ver recursos
                 </a>
@@ -393,7 +393,7 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="border-t border-neutral-200/70 py-10 dark:border-neutral-800/70">
+        <footer className="border-t border-neutral-200/70 py-10">
           <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 md:flex-row md:items-center md:justify-between">
             <p className="text-sm opacity-70">
               © {new Date().getFullYear()} Estudos Help — sem complicação.
@@ -418,7 +418,7 @@ export default function Home() {
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
-    <span className="rounded-full border border-neutral-200 bg-white/60 px-3 py-1 dark:border-neutral-800 dark:bg-neutral-950/40">
+    <span className="rounded-full border border-neutral-200 bg-white/60 px-3 py-1">
       {children}
     </span>
   );
@@ -426,7 +426,7 @@ function Pill({ children }: { children: React.ReactNode }) {
 
 function MockCard({ title, value, hint }: { title: string; value: string; hint: string }) {
   return (
-    <div className="rounded-2xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-950">
+    <div className="rounded-2xl border border-neutral-200 bg-white p-4">
       <p className="text-xs opacity-70">{title}</p>
       <p className="mt-1 text-2xl font-bold">{value}</p>
       <p className="mt-2 text-xs opacity-70">{hint}</p>
@@ -441,8 +441,8 @@ function MockTask({ children, done }: { children: React.ReactNode; done?: boolea
         className={cn(
           "inline-flex h-5 w-5 items-center justify-center rounded-full border",
           done
-            ? "border-emerald-300 bg-emerald-50 text-emerald-700 dark:border-emerald-900/60 dark:bg-emerald-900/20 dark:text-emerald-200"
-            : "border-neutral-200 bg-neutral-50 text-neutral-700 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-200"
+            ? "border-emerald-300 bg-emerald-50 text-emerald-700"
+            : "border-neutral-200 bg-neutral-50 text-neutral-700"
         )}
       >
         <CheckCircle2 className="h-4 w-4" />
@@ -470,10 +470,10 @@ function FeatureCard({
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as const }}
       whileHover={prefersReducedMotion ? undefined : { y: -4 }}
-      className="group rounded-3xl border border-neutral-200 bg-white/70 p-6 shadow-sm backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/60"
+      className="group rounded-3xl border border-neutral-200 bg-white/70 p-6 shadow-sm backdrop-blur"
     >
       <div className="flex items-center gap-3">
-        <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-950">
+        <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-neutral-200 bg-white">
           {icon}
         </div>
         <p className="text-lg font-semibold">{title}</p>
@@ -493,7 +493,7 @@ function StepCard({ n, title, desc }: { n: string; title: string; desc: string }
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as const }}
-      className="rounded-3xl border border-neutral-200 bg-white/70 p-6 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/60"
+      className="rounded-3xl border border-neutral-200 bg-white/70 p-6 backdrop-blur"
     >
       <p className="text-xs font-semibold opacity-70">{n}</p>
       <p className="mt-2 text-lg font-bold">{title}</p>
@@ -509,7 +509,7 @@ function Testimonial({ name, text }: { name: string; text: string }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as const }}
-      className="rounded-3xl border border-neutral-200 bg-white/70 p-6 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/60"
+      className="rounded-3xl border border-neutral-200 bg-white/70 p-6 backdrop-blur"
     >
       <p className="text-sm opacity-80">“{text}”</p>
       <p className="mt-4 text-sm font-semibold opacity-80">{name}</p>
